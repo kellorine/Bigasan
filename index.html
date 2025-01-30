@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> RICE </title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Fresh Rice </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <button id="cartBtn" class="cart-btn">🛒 Cart (<span id="cartCount">0</span>)</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Fresh, High-Quality Rice</h1>
+                <p></p>
+                <a href="#products" class="cta-button">Shop Now</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>Our goal at Fresh Rice Market is to provide you and your family with high-quality rice that suits your taste and demands. We work to make sure every purchase supports sustainable farming, from carefully chosen grains to environmentally responsible packaging.</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>100% Fresh</h3>
+                        <p>Locally Sourced Rice</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Eco-Friendly</h3>
+                        <p>Sustainable Packaging</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Quality</h3>
+                        <p>Premium Selection</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="./src/images/jasmine.jpg" alt="Premium Jasmine Rice">
+                    <h3>Premium Jasmine Rice</h3>
+                    <p>Soft, fragrant, and ideal for everyday meals.</p>
+                    <p class="price">₱50.00/kg</p>
+                    <div class="product-controls">
+                        <input type="number" min="1" value="1" class="quantity-input">
+                        <button onclick="addToCart('Premium Jasmine Rice', 50, this, './src/images/jasmine.jpg')">Add to Cart</button>
+                        <button type="button" class="btn btn-info" 
+                                data-bs-toggle="popover" 
+                                data-bs-placement="top" 
+                                data-bs-content="Indulge in the aromatic delight of Premium Jasmine Rice, a long-grain variety renowned for its natural fragrance and fluffy texture. Sourced from the finest fields, this rice is cultivated with care to ensure superior quality. Perfect for both traditional and modern dishes, it pairs wonderfully with stir-fries, curries, and savory stews.
+
+                                Experience the rich aroma and delicate flavor that make Premium Jasmine Rice a staple in every kitchen. Gluten-free and packed with nutrients, it’s an ideal choice for wholesome meals. Elevate your dining experience with the timeless elegance of this versatile grain.">
+                            More Info
+                        </button>
+                    </div>
+                </div>
+                
+
+                <div class="product-card">
+                    <img src="/src/images/superangelica.jpg" alt="Super Angelica">
+                    <h3>Super Angelica</h3>
+                    <p>Healthy, whole grain with a nutty flavor .</p>
+                    <p class="price">₱65.00/kg</p>
+                    <div class="product-controls">
+                        <input type="number" min="1" value="1" class="quantity-input">
+                        <button onclick="addToCart('Super Angelica', 65, this,'/src/images/superangelica.jpg')">Add to Cart</button>
+                        <button type="button" class="btn btn-info" 
+                        data-bs-toggle="popover" 
+                        data-bs-placement="top" 
+                        data-bs-content="Experience the unparalleled quality of Super Angelica Rice, a premium grain that embodies excellence in every bite. Known for its soft, fluffy texture and slightly nutty flavor, this rice is a favorite for creating hearty, wholesome meals.
+                                      Meticulously cultivated and expertly milled, Super Angelica Rice is perfect for a variety of dishes, from classic filipino favorites to international cuisines. Its versatility, superior quality, and fragrant aroma make it the ideal choice for both everyday meals and special occasions.
+                       Bring a touch of perfection to your table with Super Angelica Rice—a trusted staple for your culinary creations.">
+                    More Info
+                </button>
+            </div>
+        </div>
+                
+
+                <div class="product-card">
+                    <img src="/src/images/sinandomeng.jpg" alt="Sinandomeng">
+                    <h3>Sinandomeng</h3>
+                    <p>Perfect for desserts and sticky rice recipes.</p>
+                    <p class="price">₱55.00/kg</p>
+                    <div class="product-controls">
+                        <input type="number" min="1" value="1" class="quantity-input">
+                        <button onclick="addToCart('Sinandomeng', 55, this)">Add to Cart</button>
+                        <button type="button" class="btn btn-info" 
+                        data-bs-toggle="popover" 
+                        data-bs-placement="top" 
+                        data-bs-content="Sinandomeng Rice is a premium long-grain variety, celebrated for its delicate flavor and fluffy texture. Known for its smooth cooking properties and versatility, it’s a staple in both traditional and modern Filipino cuisine.
+                        Sourced from the finest fields, Sinandomeng Rice offers a naturally fragrant aroma and a light, soft consistency that complements a wide range of dishes. Perfect for fried rice, steamed meals, and hearty stir-fries, it brings warmth and satisfaction to every meal.
+                        Experience the authentic taste of the Philippines with Sinandomeng Rice, a reliable choice for those who appreciate quality and tradition.">
+                    More Info
+                </button>
+            </div>
+        </div>
+
+                <div class="product-card">
+                    <img src="/src/images/maharlika.jpg" alt="maharlika">
+                    <h3>Maharlika</h3>
+                    <p>Classic and versatile for every dish.</p>
+                    <p class="price">₱40.00/kg</p>
+                    <div class="product-controls">
+                        <input type="number" min="1" value="1" class="quantity-input">
+                        <button onclick="addToCart('Maharlika', 40, this)">Add to Cart</button>
+                        <button type="button" class="btn btn-info" 
+                        data-bs-toggle="popover" 
+                        data-bs-placement="top" 
+                        data-bs-content="Maharlika Rice is a premium long-grain variety celebrated for its exceptional quality and versatility. Known for its soft, fluffy texture and mild, slightly nutty flavor, Maharlika Rice is a top choice for creating flavorful and satisfying meals.
+
+                        Sourced from the best rice fields, this premium variety ensures a consistent, aromatic cooking experience, perfect for both everyday dining and special occasions. Whether steamed, fried, or used in rice-based dishes, Maharlika Rice provides a delightful taste and a comforting, wholesome texture.
+                        
+                        Elevate your meals with Maharlika Rice, the perfect blend of tradition and superior quality.">
+                    More Info
+                </button>
+            </div>
+        </div>
+
+                <div class="product-card">
+                    <img src="/src/images/dinurado.jpg" alt="dinurado">
+                    <h3>Dinurado</h3>
+                    <p>Rich in antioxidants with unique flavor.</p>
+                    <p class="price">₱75.00/kg</p>
+                    <div class="product-controls">
+                        <input type="number" min="1" value="1" class="quantity-input">
+                        <button onclick="addToCart('Dinurado', 75, this)">Add to Cart</button>
+                        <button type="button" class="btn btn-info" 
+                        data-bs-toggle="popover" 
+                        data-bs-placement="top" 
+                        data-bs-content="Dinorado Rice is a premium, aromatic variety known for its distinct flavor and fluffy, tender texture. With a slightly sweet taste and natural fragrance, Dinorado Rice adds a special touch to every meal.
+
+                        Sourced from the finest rice fields, this long-grain variety cooks up light and fluffy, making it perfect for a variety of dishes such as fried rice, sushi, and savory stews. Its rich aroma and versatility make Dinorado Rice a popular choice for both casual and gourmet dining.
+                        
+                        Enjoy the unique taste and quality of Dinorado Rice, a cherished staple in Filipino and Asian cuisines.">
+                    More Info
+                </button>
+            </div>
+        </div>
+
+                <div class="product-card">
+                    <img src="/src/images/jurassic.jpg" alt="sinandomeng jurassic">
+                    <h3>Sinandomeng Jurassic</h3>
+                    <p>Nutritious with a distinctive taste.</p>
+                    <p class="price">₱70.00/kg</p>
+                    <div class="product-controls">
+                        <input type="number" min="1" value="1" class="quantity-input">
+                        <button onclick="addToCart('Sinandomeng jurassic', 70, this)">Add to Cart</button>
+                        <button type="button" class="btn btn-info" 
+                        data-bs-toggle="popover" 
+                        data-bs-placement="top" 
+                        data-bs-content=" Sinandomeng Jurassic Rice is a premium long-grain variety known for its exceptional quality and natural aroma. Sourced from the finest rice fields, this heritage rice offers a unique texture and distinct flavor that sets it apart from other varieties.
+
+                        With a rich, fluffy consistency and a slightly nutty taste, Sinandomeng Jurassic Rice is perfect for a variety of dishes—from traditional Filipino recipes to modern culinary creations. Its resilience and versatility make it a reliable choice for both everyday meals and special occasions.
+                        
+                        Experience the rich heritage and superior quality of Sinandomeng Jurassic Rice, a timeless favorite that brings comfort and authenticity to your table.">
+                    More Info
+                </button>
+            </div>
+        </div>
+            </div> 
+           
+        </section>
+        
+        <section id="contact" class="contact">
+            <div class="contact-content">
+                <h2>Contact Us</h2>
+                <div class="contact-grid">
+                    <!-- <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>📞 Phone: +63 9556746826 </p>
+                        <p>📧 Email: rejbascoguinb@gmail.com /p>
+                        <p>📍 Address: Block 23 Lot 19 G 21 Verde Heights Subdivision Gaya-Gaya CSJDM, Bulacan </p>
+                    </div> -->
+                    <form id="contactForm" class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!--  Modal -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Rice Cart</h2>
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h3>Total: ₱<span id="cartTotal">0.00</span></h3>
+                    <button onclick="checkout()" class="checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Purchase History Modal -->
+      
+<div id="historyModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Purchase History</h2>
+        <div id="purchaseHistory"></div>
+    </div>
+</div>
+<button id="historyBtn" class="history-btn">View Purchase History</button>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Phone: +63 9556746826</p>
+                <p>Email: rejbascoguinb@gmail.com</p>
+            </div>
+            <!-- <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div> -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fresh Rice. All rights reserved.</p>
+        </div>
+    </footer>
+
+     <script src="/js/popover.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/contact.js"></script>    
+     <!-- <script src="script.js"></script>  -->
+     
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
