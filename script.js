@@ -224,17 +224,18 @@ function updatePurchaseHistory() {
         }).join('');  // Join the item HTML elements to form a list
 
         // Safely handle `purchase.total`
-        const total = purchase.total ? purchase.total.toFixed(2) : '0.00';
+       // Safely handle `purchase.total` and ensure it's a number
+const total = (purchase.total && !isNaN(purchase.total)) ? purchase.total : 0; // Default to 0 if invalid
+const formattedTotal = total.toFixed(2); // Format the total
 
-        // Set inner HTML for the purchase element
-        purchaseElement.innerHTML = `
-            <h4>Purchase on ${purchase.date}</h4>
-            ${itemsHtml}  <!-- Display item details including quantity and image -->
-            <p><strong>Total: ₱${total}</strong></p>
-            <button onclick="deletePurchaseHistory(${index})" class="delete-btn">Delete</button>
-        `;
-
-        purchaseHistoryDiv.appendChild(purchaseElement);  // Append the purchase item to the history div
+// Set inner HTML for the purchase element
+purchaseElement.innerHTML = `
+    <h4>Purchase on ${purchase.date}</h4>
+    ${itemsHtml}  <!-- Display item details including quantity and image -->
+    <p><strong>Total: ₱${formattedTotal}</strong></p>
+    <button onclick="deletePurchaseHistory(${index})" class="delete-btn">Delete</button>
+`;
+   purchaseHistoryDiv.appendChild(purchaseElement);  // Append the purchase item to the history div
     });
 }
 
@@ -249,9 +250,6 @@ function deletePurchaseHistory(index) {
         updatePurchaseHistory();
     }
 }
-
-
-
 
 
 // Save Purchase History to Local Storage

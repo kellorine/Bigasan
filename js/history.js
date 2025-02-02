@@ -18,10 +18,13 @@ function addToPurchaseHistory(purchase) {
     savePurchaseHistory();
 }
 
-
 // Update Purchase History Display
 function updatePurchaseHistory() {
     purchaseHistoryDiv.innerHTML = '';  // Clear the history content
+
+    if (purchaseHistory.length === 0) {
+        purchaseHistoryDiv.innerHTML = '<p>No purchase history available.</p>';
+    }
 
     purchaseHistory.forEach((purchase, index) => {
         const purchaseElement = document.createElement('div');
@@ -52,24 +55,22 @@ function updatePurchaseHistory() {
             `;
         }).join('');  // Join the item HTML elements to form a list
 
-        // Safely handle `purchase.total`
-        const total = purchase.total ? purchase.total.toFixed(2) : '0.00';
+// Safely handle `purchase.total` and ensure it's a number
+const total = (purchase.total && !isNaN(purchase.total)) ? parseFloat(purchase.total) : 0; // Convert to number or default to 0
+const formattedTotal = `₱${total.toFixed(2)}`; // Format with peso symbol and two decimal places
 
-        // Set inner HTML for the purchase element
-        purchaseElement.innerHTML = `
-            <h4>Purchase on ${purchase.date}</h4>
-            ${itemsHtml}  <!-- Display item details including quantity and image -->
-            <p><strong>Total: ₱${total}</strong></p>
-            <button onclick="deletePurchaseHistory(${index})" class="delete-btn">Delete</button>
-        `;
+// Set inner HTML for the purchase element
+purchaseElement.innerHTML = `
+    <h4>Purchase on ${purchase.date}</h4>
+    ${itemsHtml}  <!-- Display item details including quantity and image -->
+    <p><strong>Total: ${formattedTotal}</strong></p>
+    <button onclick="deletePurchaseHistory(${index})" class="delete-btn">Delete</button>
+`;
 
         purchaseHistoryDiv.appendChild(purchaseElement);  // Append the purchase item to the history div
     });
 }
 
-
-
-// Delete Purchase History Item
 // Delete Purchase History Item with confirmation
 function deletePurchaseHistory(index) {
     const confirmDelete = confirm("Are you sure you want to delete this purchase?");
@@ -80,7 +81,6 @@ function deletePurchaseHistory(index) {
     }
 }
 
-
 // Save Purchase History to Local Storage
 function savePurchaseHistory() {
     localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
@@ -90,9 +90,18 @@ function savePurchaseHistory() {
 function loadPurchaseHistory() {
     const saved = localStorage.getItem('purchaseHistory');
     if (saved) {
-        purchaseHistory = JSON.parse(saved);
+        try {
+            purchaseHistory = JSON.parse(saved);
+            console.log('Loaded purchase history:', purchaseHistory); // Debugging log
+        } catch (error) {
+            console.error("Error parsing purchase history:", error);
+            purchaseHistory = []; // Reset on error
+        }
     }
 }
 
 // Initialize
-loadPurchaseHistory();
+document.addEventListener('DOMContentLoaded', () => {
+    loadPurchaseHistory();
+    updatePurchaseHistory();  // Ensure UI reflects loaded history
+});

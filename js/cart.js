@@ -67,72 +67,6 @@ function showAddedToCartMessage(name, quantity) {
     }, 2000);
 }
 
-// // Update Cart Display
-// function updateCartDisplay() {
-//     cartItems.innerHTML = '';
-//     let total = 0;
-
-//     // Loop through the cart and display items
-//     cart.forEach((item, index) => {
-//         const itemTotal = item.price;
-//         total += itemTotal;
-
-//         const itemElement = document.createElement('div');
-//         itemElement.className = 'cart-item';
-//         itemElement.innerHTML = `
-//             <div>
-//                 <h4>${item.name}</h4> <!-- Display the item name -->
-//             </div>
-//             <div>
-//                 <p>₱${itemTotal.toFixed(2)}</p>
-//                 <button onclick="removeFromCart(${index})" class="delete-btn">Delete</button>
-//             </div>
-//         `;
-//         cartItems.appendChild(itemElement);
-//     });
-
-//     cartTotal.textContent = total.toFixed(2);
-// }
-
-
-// // Update Cart Display
-// function updateCartDisplay() {
-//     cartItems.innerHTML = '';  // Clear the cart content
-//     let total = 0;  // Initialize total for all items
-
-//     // Loop through the cart and display items
-//     cart.forEach((item, index) => {
-//         const itemTotal = item.price * item.quantity;
-//         total += itemTotal;
-
-//         const itemElement = document.createElement('div');
-//         itemElement.className = 'cart-item';
-//         itemElement.innerHTML = `
-//             <div class="cart-item-details">
-//                 <img src="${item.imageUrl}" alt="${item.name}" class="cart-item-image">  <!-- Display item image -->
-//                 <h4>${item.name}</h4>  <!-- Display item name -->
-//                 <p>₱${item.price.toFixed(2)} x ${item.quantity}</p>
-//             </div>
-//             <div class="cart-item-price">
-//                 <p>₱${itemTotal.toFixed(2)}</p>
-//                 <button onclick="removeFromCart(${index})" class="delete-btn">Delete</button>  <!-- Delete button -->
-//             </div>
-//         `;
-//         cartItems.appendChild(itemElement);
-//     });
-
-//     cartTotal.textContent = total.toFixed(2);
-// }
-
-
-
-
-
-
-
-
-
-
 // Update Cart Display
 function updateCartDisplay() {
     cartItems.innerHTML = '';  // Clear the cart content
@@ -191,11 +125,17 @@ function removeFromCart(index) {
     }
 }
 
-// Checkout Function
 function checkout() {
     if (cart.length === 0) {
         alert('Your cart is empty!');
         return;
+    }
+
+    // Confirmation alert
+    const confirmCheckout = confirm('Do you want to proceed with the checkout?');
+    
+    if (!confirmCheckout) {
+        return; // Stop the checkout if the user clicks "Cancel"
     }
 
     // Date and time for purchase
@@ -225,7 +165,3 @@ function checkout() {
     alert('Thank you for your purchase!');
     cartModal.style.display = 'none';
 }
-
-
-
-
