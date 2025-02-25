@@ -28,6 +28,7 @@ nav {
     padding: 1rem 5%;
     max-width: 1200px;
     margin: 0 auto;
+    
 }
 
 .logo {
@@ -38,7 +39,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 20rem;
     align-items: center;
 }
 
@@ -68,13 +69,13 @@ nav {
 .hero-content {
     max-width: 800px;
     padding: 2rem;
+    text-align: center;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* Default font size */
     margin-bottom: 1rem;
 }
-
 /* About Section */
 .about {
     padding: 4rem 5%;
@@ -335,22 +336,6 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-
 .cta-button {
     color: #ffffff; 
  
@@ -373,3 +358,539 @@ footer {
 }
 
 
+
+@media (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 1.6rem; /* Smaller font size for smaller screens */
+    }
+    
+    nav {
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        text-align: center;
+        background: white;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        padding: 1rem;
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        pointer-events: none; /* Prevent interaction when hidden */
+    }
+    
+    .hero-content {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .about-content, 
+    .contact-content,
+    .products {
+        text-align: center;
+    }
+
+    .features,
+    .product-grid,
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* .product-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 00px;
+    } */
+    
+
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        transition: transform 0.3s ease-in-out;
+    }
+    .menu-toggle.active {
+        transform: rotate(90deg);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto; /* Enable interaction when visible */
+
+    }
+    @media (max-width: 666px) {
+        .about-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+    
+        .features {
+            display: flex;
+            flex-direction: column; /* Stacks elements vertically */
+            align-items: center;
+            gap: 1rem;
+        }
+    
+        .feature {
+            width: 900%;
+            max-width: 200px; /* Adjusts max width for better alignment */
+            text-align: center;
+            padding: 1rem;
+        }
+    }
+    
+}
+.menu-toggle {
+    display: none; /* Hide by default */
+}
+
+@media (max-width: 375px) {
+    .menu-toggle {
+        display: block; /* Show only at 375px */
+    }
+}
+
+
+
+
+@media (max-width: 667px) and (orientation: landscape) {
+    .about-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .features {
+        display: flex;
+        flex-direction: column; /* Stacks elements vertically */
+        align-items: center;
+        gap: 1rem;
+    }
+  
+    .feature {
+        width: 900%;
+        max-width: 400px; /* Optional: Adjust max width for better alignment */
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+.nav-links {
+    display: none; /* Hide by default */
+}
+
+@media (min-width: 666px) {
+    .nav-links {
+        display: flex; /* Show when screen is 667px or larger */
+        gap: 15px; /* Adjust spacing */
+    }
+}
+
+
+@media (max-width: 665px) {
+    .nav-links {
+      display: flex; /* Display items in a row */
+      gap: 20px; /* Add space between items */
+      align-items: center; /* Align items vertically in the middle */
+    }
+  }
+  
+
+/* Default - Show nav links and hide the menu */
+.nav-links {
+    display: flex;
+    gap: 25px; /* Space between items */
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+  }
+  
+  .menu-toggle {
+    display: none; /* Initially hide the hamburger menu */
+  }
+  
+  /* At 600px, hide the cart button and show only specific links in the toggle */
+  @media (max-width: 600px) {
+    nav {
+      display: flex;
+      justify-content: space-between; /* Ensure space between logo and menu toggle */
+      align-items: center;
+    }
+  
+    .nav-links {
+      display: none; /* Hide the nav links by default */
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
+      justify-content: center;
+      gap: 10px;
+      position: absolute;
+      top: 60px; /* Adjust the position below the menu */
+      left: 0;
+      right: 0;
+      background-color: #fff; /* Add background color to menu */
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for visibility */
+    }
+  
+    .menu-toggle {
+      display: block; /* Show the hamburger menu */
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 10; /* Ensure the toggle button stays on top */
+    }
+  
+    #cartBtn {
+      display: none; /* Hide the cart button in the mobile menu */
+    }
+  
+    /* Show the nav links when 'active' class is added */
+    .nav-links.active {
+      display: flex; /* Show nav links when active */
+    }
+  }
+  
+  
+  @media (max-width: 588px) {
+    .hero-content h1 {
+        font-size: 2.6rem; /* Smaller font size for smaller screens */
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+    .hero-content h1 {
+        font-size: 1.6rem; /* Smaller font size for smaller screens */
+    }
+/* Base styles */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 8px 12px; /* Reduced padding */
+}
+
+/* Default: Hide nav-links */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px; /* Adjust under header */
+    right: 0;
+    background: white;
+    width: 100%;
+    padding: 5px 10px; /* Less padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style links */
+.nav-links a, .cart-btn {
+    display: block;
+    padding: 6px 10px; /* Reduced padding */
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: 14px; /* Slightly smaller text */
+}
+
+/* Menu toggle */
+.menu-toggle {
+    font-size: 22px; /* Adjusted size */
+    cursor: pointer;
+    display: none;
+}
+
+/* Show menu only at 414px */
+@media screen and (max-width: 414px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links.active {
+        display: flex;
+        gap: 5px; /* Reduce space between items */
+    }
+}
+}
+
+@media (max-width: 414px){
+    .feature {
+        width: 900%;
+        max-width: 200px; /* Adjusts max width for better alignment */
+        text-align: center;
+        padding: 1rem;
+    }
+}
+@media (max-width: 430px){
+    .hero-content h1 {
+        font-size: 1.6rem; /* Smaller font size for smaller screens */
+    }
+
+    .feature {
+        width: 900%;
+        max-width: 200px; /* Adjusts max width for better alignment */
+        text-align: center;
+        padding: 1rem;
+    }
+}
+@media screen and (max-width: 430px) {
+    /* Header styling */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: #f8f8f8;
+        padding: 8px 12px;
+    }
+
+    /* Menu toggle */
+    .menu-toggle {
+        display: block;
+        font-size: 22px; /* Adjusted size */
+        cursor: pointer;
+    }
+
+    /* Navigation links */
+    .nav-links {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Position under header */
+        right: 0;
+        width: 100%;
+        background: white;
+        padding: 5px 10px; /* Reduced padding */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links a,
+    .cart-btn {
+        padding: 6px 10px; /* Reduced padding */
+        font-size: 14px;
+        text-align: center;
+        color: black;
+        text-decoration: none;
+    }
+
+    /* Show menu items when active */
+    .nav-links.active {
+        display: flex;
+        gap: 5px; /* Reduced gap between items */
+    }
+
+    /* Center content sections */
+    .about-content,
+    .contact-content,
+    .products {
+        text-align: center;
+    }
+
+    /* Layout for product grid, features, and contact grid */
+    .features,
+    .product-grid,
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Product card and contact form responsiveness */
+    .product-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centers everything */
+        gap: 10px; /* Equal spacing between elements */
+        width: 100%;
+        flex-wrap: wrap; /* Ensures items wrap properly on smaller screens */
+    }
+
+    .product-controls input {
+        width: 60px; /* Keeps quantity input small but visible */
+        text-align: center;
+    }
+
+    .product-controls button {
+        flex: 1; /* Makes buttons equal width */
+        min-width: 140px; /* Ensures proper button size */
+        max-width: 180px; /* Prevents buttons from being too wide */
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+
+    /* If screen is too small, allow wrapping */
+    .product-controls button + button {
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .product-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centers everything */
+        gap: 10px; /* Equal spacing between elements */
+        width: 100%;
+        flex-wrap: wrap; /* Ensures items wrap properly on smaller screens */
+    }
+
+    .product-controls input {
+        width: 60px; /* Keeps quantity input small but visible */
+        text-align: center;
+    }
+
+    .product-controls button {
+        flex: 1; /* Makes buttons equal width */
+        min-width: 140px; /* Ensures proper button size */
+        max-width: 180px; /* Prevents buttons from being too wide */
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+
+    /* If screen is too small, allow wrapping */
+    .product-controls button + button {
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 820px) {
+    .product-controls {
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center;
+        gap: 10px; /* Even spacing between elements */
+        width: 100%;
+    }
+
+    .product-controls input {
+        width: 100px; /* Makes input more readable */
+        text-align: center;
+        padding: 8px;
+    }
+
+    .product-controls button {
+        width: 100%; /* Makes buttons take full width */
+        max-width: 200px; /* Ensures they don’t become too wide */
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+    .features {
+        display: flex;
+        flex-direction: column; /* Stacks elements vertically */
+        align-items: center;
+        gap: 1rem;
+    }
+  
+    .feature {
+        width: 900%;
+        max-width: 400px; /* Optional: Adjust max width for better alignment */
+        text-align: center;
+        padding: 1rem;
+    }
+}
+@media screen and (max-width: 1129px) {
+    .product-controls {
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center;
+        gap: 10px; /* Even spacing between elements */
+        width: 100%;
+    }
+
+    .product-controls input {
+        width: 100px; /* Makes input more readable */
+        text-align: center;
+        padding: 8px;
+    }
+
+    .product-controls button {
+        width: 100%; /* Makes buttons take full width */
+        max-width: 200px; /* Ensures they don’t become too wide */
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+}
+@media screen and (max-width: 820px) {
+    .product-controls {
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center;
+        gap: 10px; /* Even spacing between elements */
+        width: 100%;
+    }
+
+    .product-controls input {
+        width: 100px; /* Makes input more readable */
+        text-align: center;
+        padding: 8px;
+    }
+
+    .product-controls button {
+        width: 100%; /* Makes buttons take full width */
+        max-width: 200px; /* Ensures they don’t become too wide */
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+}
